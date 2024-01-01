@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1 class="header_text">Ayushi do you wanna go out with me?</h1>
+      </div>
+      <div class="gif_container">
+        <img
+          src="https://i.postimg.cc/pdNqPxx1/milk-and-mocha-cute.gif"
+          alt="Cute animated illustration"
+        />
+      </div>
+      <div class="inputs">
+        <div class="buttons">
+          <button
+            class="btn"
+            id="yesButton"
+            onmouseover="moveButton()"
+            onclick="nextPage()"
+          >
+            Yes
+          </button>
+          <button class="btn" id="noButton" onclick="noButton()">No</button>
+
+          <script>
+            function noButton() {
+              alert("pgli terko no krne dunga kya mein 😂😂");
+            }
+
+            function nextPage() {
+              window.location.href = "yes.html";
+            }
+
+            function moveButton() {
+              if (feelings != "i love you") {
+                var x =
+                  Math.random() *
+                  (window.innerWidth -
+                    document.getElementById("yesButton").offsetWidth);
+
+                var y =
+                  Math.random() *
+                  (window.innerHeight -
+                    document.getElementById("yesButton").offsetHeight);
+                document.getElementById("yesButton").style.left = `${x}px`;
+                document.getElementById("yesButton").style.top = `${y}px`;
+              }
+            }
+          </script>
+        </div>
+
+        <div class="magic">
+          <h1>Only magical words can help you</h1>
+          <input id="magicInput" type="text" />
+          <button class="btn" onclick="submitButton()">submit</button>
+          <script>
+            function submitButton() {
+              var inputVal = document.getElementById("magicInput").value;
+              feelings = inputVal;
+              console.log(feelings);
+              console.log(inputVal);
+              document.getElementById("magicInput").value = "";
+
+              if (feelings == "i love you") {
+                // window.open(
+                //   "mailto:mail2pmishra2001@gmail.com?subject=hello ji&body=hello"
+                // );
+                alert("I love you tooooo 😘😘");
+                document.getElementById("yesButton").style.left = `${btx}px`;
+                document.getElementById("yesButton").style.top = `${bty}px`;
+              }
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+    <script>
+      var feelings = "";
+
+      var bodyRect = document.body.getBoundingClientRect();
+      var recty = document.getElementById("yesButton").getBoundingClientRect();
+      var rect = document.getElementById("noButton").getBoundingClientRect();
+      const bty = rect.top;
+      const btx = rect.left;
+    </script>
+  </body>
+</html>
